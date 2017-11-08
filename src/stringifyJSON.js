@@ -5,6 +5,7 @@
 
 var stringifyJSON = function(obj) {
   // your code goes here
+  //typeof(obj) can also be written as obj.constructor
   if (typeof(obj) === 'string') {
   	console.log(1);
   	return '"' + obj + '"'
@@ -41,10 +42,12 @@ var stringifyJSON = function(obj) {
       keynew = '"' + key + '"';
       obj[keynew] = obj[key];
       delete obj[key]; */
-      result += '"' + key + '"' + ':' + stringifyJSON(obj[key]);
-      if (len !== Object.keys(obj).length){
-      	result += ',';
-      }
+      	if( key !== 'undefined' && key !== 'functions' && key !== 'symbol') {
+	      result += '"' + key + '"' + ':' + stringifyJSON(obj[key]);
+	      if (len !== Object.keys(obj).length){
+	      	result += ',';
+      	  }
+      	}
       len++;
 
     }
