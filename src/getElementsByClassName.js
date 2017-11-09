@@ -15,11 +15,18 @@ var getElementsByClassName = function(className) {
       		elements.push(node);
       	}
 
-      	if(node.childNodes.length !== 0) {
+     /* 	if(node.childNodes.length !== 0) {
       		for(var i = 0; i < node.childNodes.length; i++) {
       			checkEachNode(node.childNodes[i],className);
       		}
-      	}		
+      	}		*/
+
+        if(node.hasChildNodes()){
+          node.childNodes.forEach(function(child){
+            checkEachNode(child,className);
+          })          
+        }
+        
      }
 
      checkEachNode(document.body,className);
