@@ -14,7 +14,7 @@ var stringifyJSON = function(obj) {
   	return  String(obj) ;
   }
 
-  else if (typeof(obj) === 'undefined' || typeof(obj) === 'symbol' || typeof(obj) === 'functions' || typeof(obj) === 'null') {
+  else if (typeof(obj) === 'undefined' || typeof(obj) === 'symbol' || typeof(obj) === 'function' || typeof(obj) === 'null') {
   	return 'null';
   }
 
